@@ -2,7 +2,8 @@
 % Please edit documentation in R/utils.R
 \name{community2ppp}
 \alias{community2ppp}
-\title{Converts an object of class \code{\link[mobsim]{community}} into an object of class \code{\link[spatstat.geom]{ppp}}}
+\title{Converts an object of class \code{\link[mobsim]{community}} into an object of
+class \code{\link[spatstat.geom]{ppp}}.}
 \usage{
 community2ppp(comm)
 }
@@ -10,7 +11,8 @@ community2ppp(comm)
 \item{comm}{Community object}
 }
 \description{
-Converts an object of class \code{\link[mobsim]{community}} into an object of class \code{\link[spatstat.geom]{ppp}}
+Converts an object of class \code{\link[mobsim]{community}} into an object of
+class \code{\link[spatstat.geom]{ppp}}.
 }
 \details{
 For each species, the function first draws a random number of

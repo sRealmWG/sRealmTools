@@ -2,15 +2,15 @@
 % Please edit documentation in R/utils.R
 \name{create_random_ID}
 \alias{create_random_ID}
-\title{Creates a random string}
+\title{Creates a random string.}
 \usage{
 create_random_ID(n = 1L, seed = NULL)
 }
 \arguments{
-\item{n}{(integer) number of random strings to create.}
+\item{n}{(integer) number of random strings to create. Default is 1.}
 
 \item{seed}{(integer) Any integer passed to \code{\link[base]{set.seed}} for reproducibility.}
 }
 \description{
-Creates a random string
+Creates a random string.
 }

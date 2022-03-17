@@ -1,7 +1,7 @@
 Package: sRealmTools
 Type: Package
 Title: Collection of functions and simulation models on top of mobsim
-Version: 0.1.1.9011
+Version: 0.1.1.9012
 Author: Alban Sagouis
 Maintainer: alban.sagouis <alban.sagouis@idiv.de>
 Description: Functions adapted to mobsim package simulation and sampling tools.

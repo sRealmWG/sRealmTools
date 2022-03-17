@@ -4,7 +4,7 @@
 \alias{jitter_species}
 \title{Adds the same random movement to all individuals of a species}
 \usage{
-jitter_species(comm, sd = 0.01, seed = NULL)
+jitter_species(comm, sd = 0.01, seed = NULL, drift = 0)
 }
 \arguments{
 \item{comm}{(community) List of class \code{community}.}
@@ -12,6 +12,8 @@ jitter_species(comm, sd = 0.01, seed = NULL)
 \item{sd}{(numeric) Standard deviation for the \code{\link[stats]{rnorm}}.}
 
 \item{seed}{(integer) Any integer passed to \code{\link[base]{set.seed}} for reproducibility.}
+
+\item{drift}{(numeric) A single value added to the x coordinates.}
 }
 \value{
 A named list of class \code{community} as described in \code{\link[mobsim]{community}}
@@ -35,6 +37,9 @@ plot(simdatJ)
 
 # With more variability for the movement of individuals
 simdatJ <- jitter_species(simdat, sd = 2)
+
+# With a fixed drift to the right
+simdatJ <- jitter_species(simdat, sd = 0.01, drift = 2)
 
 # Fixing the seed
 simdatJ <- jitter_species(simdat, seed = 42L)

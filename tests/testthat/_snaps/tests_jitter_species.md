@@ -106,3 +106,30 @@
       attr(,"class")
       [1] "community"
 
+# snapshot test with drift
+
+    Code
+      jitter_species(simdat, drift = 2, seed = 42L)
+    Output
+      $census
+                x          y    species
+      1  2.928516 0.47079047 species_01
+      2  2.931428 0.74197871 species_02
+      3  2.289771 0.92078364 species_03
+      4  2.836776 0.25264094 species_04
+      5  2.645788 0.46095961 species_05
+      6  2.518035 0.94637403 species_06
+      7  2.751704 0.97538390 species_07
+      8  2.133720 0.09092281 species_08
+      9  2.677177 0.45059241 species_09
+      10 2.704438 0.57353388 species_10
+      
+      $x_min_max
+      [1] 0 1
+      
+      $y_min_max
+      [1] 0 1
+      
+      attr(,"class")
+      [1] "community"
+
