@@ -1,3 +1,3 @@
 library(testthat)
 
-test_check("sRealm")
+test_check("sRealmTools")
