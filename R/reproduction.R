@@ -2,11 +2,11 @@
 #' species identities based on the neighbours
 #'
 #' @param comm Community object
-#' @inheritParams spatstat.core::marktable
+#' @inheritParams spatstat.explore::marktable
 #' @inheritParams create_motherpoints
 #'
 #' @details For each individual, the function first identifies neighbours' identity
-#' using the \code{\link[spatstat.core]{marktable}} function, computes relative
+#' using the \code{\link[spatstat.explore]{marktable}} function, computes relative
 #' abundances and uses these relative abundances as random drawing probabilities
 #' in \code{\link[base]{sample}}.
 #' The neighbourhood community of an individual is restricted by parameter N (number of individual) or R (radius).
@@ -26,7 +26,7 @@ replace_individuals <- function(comm, N = NULL, R = NULL, seed = NULL) {
 
    spatial_comm <- community2ppp(comm)
 
-   contingency_table <- spatstat.core::marktable(spatial_comm, N = N, R = R)
+   contingency_table <- spatstat.explore::marktable(spatial_comm, N = N, R = R)
    comm$census$species <- factor(
       apply(
          contingency_table, 1L,

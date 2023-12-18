@@ -21,10 +21,10 @@ places as many mother points as needed in the window given by \code{xrange}
 and \code{yrange}.
 }
 \examples{
-# Integrated between mobsim::sim_thomas_coords() and spatstat.core::marktable()
+# Integrated between mobsim::sim_thomas_coords() and spatstat.explore::marktable()
 simdat <- mobsim::sim_thomas_coords(abund_vec = 11L:100L)
 simdat <- community2ppp(comm = simdat)
-spatstat.core::marktable(X = simdat, N = 10L)
+spatstat.explore::marktable(X = simdat, N = 10L)
 
 }
 \author{

@@ -107,10 +107,4 @@ torusify(mpcoords, range = c(0, 1))
 }
 \author{
 Alban Sagouis
-
-Alban Sagouis
-
-Alban Sagouis
-
-Alban Sagouis
 }
