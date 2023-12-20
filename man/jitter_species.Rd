@@ -14,16 +14,17 @@ jitter_species(comm, sd = 0.01, seed = NULL)
 \item{seed}{(integer) Any integer passed to \code{\link[base]{set.seed}} for reproducibility.}
 }
 \value{
-A named list of class \code{community} as described in \code{\link[mobsim]{community}}
+A named list of class \code{community} as described in
+\code{\link[mobsim]{community}}
 }
 \description{
 Adds the same random movement to all individuals of a species
 }
 \details{
 The function takes a \code{community} object and adds a random
-jitter value to each coordinate per species. The jitter follows a normal probability
-distribution of \code{mean} = 0 and \code{sd} specified by the used with
-argument \code{sd}.
+jitter value to each coordinate per species. The jitter follows a normal
+probability distribution of \code{mean} = 0 and \code{sd} specified by the
+used with argument \code{sd}.
 }
 \examples{
 # Default behaviour

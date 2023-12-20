@@ -4,7 +4,8 @@
 #' @inheritParams jitter_species
 #' @rdname drift_species
 #'
-#' @returns A named list of class \code{community} as described in \code{\link[mobsim]{community}}
+#' @returns A named list of class \code{community} as described in
+#' \code{\link[mobsim]{community}}
 #'
 #' @details The function takes a \code{community} object and adds a fixed
 #' drift value to either x or y coordinate per species. In a 1 by 1 landscape, a
@@ -15,7 +16,8 @@
 #'
 #' @examples
 #' # Default behaviour
-#' simdat <- mobsim::sim_thomas_community(s_pool = 5L, n_sim = 100L, mother_points = 1L)
+#' simdat <- mobsim::sim_thomas_community(s_pool = 5L, n_sim = 100L,
+#'                                        mother_points = 1L)
 #' simdatD <- simdat |>
 #'              drift_x_species(0.1) |>
 #'              drift_y_species(-0.2)

@@ -3,12 +3,13 @@
 #' @param comm (community) List of class \code{community}.
 #' @inheritParams jitter_motherpoints
 #'
-#' @returns A named list of class \code{community} as described in \code{\link[mobsim]{community}}
+#' @returns A named list of class \code{community} as described in
+#' \code{\link[mobsim]{community}}
 #'
 #' @details The function takes a \code{community} object and adds a random
-#' jitter value to each coordinate per species. The jitter follows a normal probability
-#' distribution of \code{mean} = 0 and \code{sd} specified by the used with
-#' argument \code{sd}.
+#' jitter value to each coordinate per species. The jitter follows a normal
+#' probability distribution of \code{mean} = 0 and \code{sd} specified by the
+#' used with argument \code{sd}.
 #' @seealso jitter_motherpoints
 #' @author Alban Sagouis
 #'

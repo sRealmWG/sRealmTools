@@ -4,12 +4,13 @@
 #' Rounds coordinates around like on a torus
 #'
 #' @param mpcoords Can be either a data.frame with columns \code{xmother} and
-#' \code{ymother} or an object of class \code{mother_map} or a \code{numeric} vector.
+#' \code{ymother} or an object of class \code{mother_map} or a \code{numeric}
+#' vector.
 #' @param ... Kept for future uses.
 #'
 #' @details \code{torusify()} is a generic function that calls functions adapted
-#' to the class of argument \code{mapcoords}. Classes \code{data.frame}, \code{numeric} and
-#' \code{mother_map} are accepted at the moment.
+#' to the class of argument \code{mapcoords}. Classes \code{data.frame},
+#'  \code{numeric} and \code{mother_map} are accepted at the moment.
 #'
 #' \code{torusify()} takes coordinates and makes sure that all
 #' coordinates actually inside the window specified
@@ -38,22 +39,23 @@ torusify <- function(mpcoords, ...) {
 #'
 #' @param mpcoords A named list of class \code{mother_map} with three elements:
 #' \enumerate{
-#'   \item \code{n_mother_points} a vector of integers giving the number of mother points per species
-#'   \item \code{xmother} List of length equal to the number of species. Each list element
-#' is a vector of x coordinates for every mother points. If one element is NA, the
-#' the corresponding species is not clustered.
-#'   \item \code{ymother} List of length equal to the number of species. Each list element
-#' is a vector of y coordinates for every mother points. If one element is NA, the
-#' the corresponding species is not clustered.
+#'   \item \code{n_mother_points} a vector of integers giving the number of
+#'    mother points per species \item \code{xmother} List of length equal to the
+#'    number of species. Each list element is a vector of x coordinates for
+#'    every mother points. If one element is NA, the the corresponding species
+#'    is not clustered.
+#'   \item \code{ymother} List of length equal to the number of species. Each
+#'   list element is a vector of y coordinates for every mother points. If one
+#'   element is NA, the the corresponding species is not clustered.
 #' }
 #' @param ... Kept for future uses.
 #'
 #' @returns An object of class \code{mother_map} of the same dimensions as the
 #' one provided to the function.
-#' @details The function takes a \code{mother_map} object and makes sure that all
-#' coordinates that were just jittered are actually inside the window specified
-#' in the \code{x_min_max} and \code{y_min_max} elements of the \code{mother_map}
-#' object.
+#' @details The function takes a \code{mother_map} object and makes sure that
+#' all coordinates that were just jittered are actually inside the window
+#' specified in the \code{x_min_max} and \code{y_min_max} elements of the
+#' \code{mother_map} object.
 #'
 #' @author Alban Sagouis
 #'
@@ -69,9 +71,16 @@ torusify <- function(mpcoords, ...) {
 
 
 torusify.mother_map <- function(mpcoords, ...) {
-   mpcoords$xmother <- lapply(mpcoords$xmother, function(MPs) (MPs %% diff(mpcoords$x_min_max)) + mpcoords$x_min_max[1L])
-   mpcoords$ymother <- lapply(mpcoords$ymother, function(MPs) (MPs %% diff(mpcoords$y_min_max)) + mpcoords$y_min_max[1L])
-   mpcoords
+   mpcoords$xmother <- lapply(
+      X = mpcoords$xmother,
+      FUN = function(MPs)
+         (MPs %% diff(mpcoords$x_min_max)) + mpcoords$x_min_max[1L])
+   mpcoords$ymother <- lapply(
+      X = mpcoords$ymother,
+      FUN = function(MPs)
+         (MPs %% diff(mpcoords$y_min_max)) + mpcoords$y_min_max[1L])
+
+   return(mpcoords)
 }
 
 
@@ -80,11 +89,13 @@ torusify.mother_map <- function(mpcoords, ...) {
 #' @param mpcoords A list of class \code{\link[mobsim]{community}}
 #' @param ... Kept for future uses.
 #'
-#' @returns A list of class \code{community} of same dimension as \code{mpcoords}.
+#' @returns A list of class \code{community} of same dimension as
+#' \code{mpcoords}.
 #'
 #' @details The function takes a \code{community} and makes sure that all
-#' individual coordinates are actually inside the window specified
-#' by the \code{x_min_max} and \code{y_min_max} elements of the \code{community} object.
+#' individual coordinates are actually inside the window specified by the
+#' \code{x_min_max} and \code{y_min_max} elements of the \code{community}
+#' object.
 #'
 #' @author Alban Sagouis
 #'
@@ -99,7 +110,7 @@ torusify.mother_map <- function(mpcoords, ...) {
 torusify.community <- function(mpcoords, ...) {
    mpcoords$census$x <- mpcoords$census$x %% diff(mpcoords$x_min_max) + mpcoords$x_min_max[1L]
    mpcoords$census$y <- mpcoords$census$y %% diff(mpcoords$y_min_max) + mpcoords$y_min_max[1L]
-   mpcoords
+   return(mpcoords)
 }
 
 
@@ -121,17 +132,19 @@ torusify.community <- function(mpcoords, ...) {
 #' @examples
 #' x_min_max <- c(0, 1)
 #' y_min_max <- c(0, 1)
-#' mpcoords <- data.frame(xmother = stats::runif(100L), ymother = stats::runif(100L))
+#' mpcoords <- data.frame(xmother = stats::runif(100L),
+#'                        ymother = stats::runif(100L))
 #' mcoordsT <- torusify(mpcoords, x_min_max, y_min_max)
 #'
 #' @rdname torusify
 #' @export
 
 torusify.data.frame <- function(mpcoords, x_min_max, y_min_max, ...) {
-   if (!all(colnames(mpcoords) %in% c("xmother","ymother"))) stop("column names should be xmother and ymother")
+   if (!all(colnames(mpcoords) %in% c("xmother","ymother")))
+      stop("column names should be xmother and ymother")
    mpcoords$xmother <- mpcoords$xmother %% diff(x_min_max) + x_min_max[1L]
    mpcoords$ymother <- mpcoords$ymother %% diff(y_min_max) + y_min_max[1L]
-   mpcoords
+   return(mpcoords)
 }
 
 
@@ -158,7 +171,7 @@ torusify.data.frame <- function(mpcoords, x_min_max, y_min_max, ...) {
 #' @export
 
 torusify.numeric <- function(mpcoords, range, ...) {
-   mpcoords %% diff(range) + range[1L]
+   return(mpcoords %% diff(range) + range[1L])
 }
 
 
@@ -213,6 +226,13 @@ create_random_ID <- function(n = 1L, seed = NULL) {
       set.seed(Sys.time())
    }
 
-   a <- do.call(paste0, replicate(5L, sample(LETTERS, n, replace = TRUE), simplify = FALSE))
-   paste0(a, sprintf("%04d", sample(9999L, n, replace = TRUE)), sample(LETTERS, n, replace = TRUE))
+   a <- do.call(paste0,
+                replicate(5L,
+                          sample(LETTERS, n, replace = TRUE),
+                          simplify = FALSE))
+   return(
+      paste0(a,
+             sprintf("%04d", sample(9999L, n, replace = TRUE)),
+             sample(LETTERS, n, replace = TRUE))
+   )
 }

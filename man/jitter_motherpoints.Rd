@@ -66,7 +66,8 @@ simdat2 <- mobsim::sim_thomas_coords(abund_vec,
  ymother = mpcoords$ymother	# list of vectors
 )
 ## computing biodiversity metrics
-div2 <- mobsim::div_rand_rect(prop_area = 0.01, comm = simdat2, n_rect = 10L, exclude_zeros = TRUE)
+div2 <- mobsim::div_rand_rect(prop_area = 0.01, comm = simdat2,
+                              n_rect = 10L, exclude_zeros = TRUE)
 
 }
 \author{

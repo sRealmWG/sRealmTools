@@ -13,7 +13,7 @@ create_motherpoints(
   seed = NULL
 )
 
-\method{plot}{mother_map}(x, ..., col = NULL, pch = NULL)
+\method{plot}{mother_map}(x, col = NULL, pch = NULL, ...)
 }
 \arguments{
 \item{s_local}{(integer) Species number.}
@@ -28,11 +28,12 @@ create_motherpoints(
 
 \item{x}{mother_map object}
 
-\item{...}{Other parameters to \code{\link[graphics:plot.default]{graphics::plot}}}
-
 \item{col}{Colour vector to mark species identities}
 
-\item{pch}{Plotting character to mark species identities. pch 16 is advised for large data sets.}
+\item{pch}{Plotting character to mark species identities.
+pch 16 is advised for large data sets.}
+
+\item{...}{Other parameters to \code{\link[graphics:plot.default]{graphics::plot}}}
 }
 \value{
 A named list of class \code{mother_map} with three elements:

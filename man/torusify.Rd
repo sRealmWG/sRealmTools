@@ -39,7 +39,8 @@ Object returned depends on the object given. For an object of class
 An object of class \code{mother_map} of the same dimensions as the
 one provided to the function.
 
-A list of class \code{community} of same dimension as \code{mpcoords}.
+A list of class \code{community} of same dimension as
+\code{mpcoords}.
 
 A \code{data.frame} of same dimension as \code{mpcoords}.
 
@@ -58,21 +59,22 @@ Rounds coordinates around like on a torus
 }
 \details{
 \code{torusify()} is a generic function that calls functions adapted
-to the class of argument \code{mapcoords}. Classes \code{data.frame}, \code{numeric} and
-\code{mother_map} are accepted at the moment.
+to the class of argument \code{mapcoords}. Classes \code{data.frame},
+ \code{numeric} and \code{mother_map} are accepted at the moment.
 
 \code{torusify()} takes coordinates and makes sure that all
 coordinates actually inside the window specified
 in \code{x_min_max} and \code{y_min_max}.
 
-The function takes a \code{mother_map} object and makes sure that all
-coordinates that were just jittered are actually inside the window specified
-in the \code{x_min_max} and \code{y_min_max} elements of the \code{mother_map}
-object.
+The function takes a \code{mother_map} object and makes sure that
+all coordinates that were just jittered are actually inside the window
+specified in the \code{x_min_max} and \code{y_min_max} elements of the
+\code{mother_map} object.
 
 The function takes a \code{community} and makes sure that all
-individual coordinates are actually inside the window specified
-by the \code{x_min_max} and \code{y_min_max} elements of the \code{community} object.
+individual coordinates are actually inside the window specified by the
+\code{x_min_max} and \code{y_min_max} elements of the \code{community}
+object.
 
 The function takes a \code{data.frame} and makes sure that all
 coordinates are actually inside the window specified
@@ -98,7 +100,8 @@ simdatJ <- torusify(simdatJ)
 
 x_min_max <- c(0, 1)
 y_min_max <- c(0, 1)
-mpcoords <- data.frame(xmother = stats::runif(100L), ymother = stats::runif(100L))
+mpcoords <- data.frame(xmother = stats::runif(100L),
+                       ymother = stats::runif(100L))
 mcoordsT <- torusify(mpcoords, x_min_max, y_min_max)
 
 mpcoords <- stats::runif(10L, min = -1, max = 2)

@@ -55,7 +55,8 @@
 #'  ymother = mpcoords$ymother	# list of vectors
 #' )
 #' ## computing biodiversity metrics
-#' div2 <- mobsim::div_rand_rect(prop_area = 0.01, comm = simdat2, n_rect = 10L, exclude_zeros = TRUE)
+#' div2 <- mobsim::div_rand_rect(prop_area = 0.01, comm = simdat2,
+#'                               n_rect = 10L, exclude_zeros = TRUE)
 #'
 #' @export
 
@@ -64,11 +65,17 @@ jitter_motherpoints <- function(mpcoords, sd = 0.01, seed = NULL) {
    if (!is.null(seed)) set.seed(seed)
 
    xmother <- utils::as.relistable(mpcoords$xmother)
-   xmother <- base::unlist(xmother) + stats::rnorm(n = sum(mpcoords$n_mother_points), mean = 0, sd = sd)
+   xmother <- base::unlist(xmother) + stats::rnorm(
+      n = sum(mpcoords$n_mother_points),
+      mean = 0,
+      sd = sd)
    mpcoords$xmother <- utils::relist(xmother)
 
    ymother <- utils::as.relistable(mpcoords$ymother)
-   ymother <- base::unlist(ymother) + stats::rnorm(n = sum(mpcoords$n_mother_points), mean = 0, sd = sd)
+   ymother <- base::unlist(ymother) + stats::rnorm(
+      n = sum(mpcoords$n_mother_points),
+      mean = 0,
+      sd = sd)
    mpcoords$ymother <- utils::relist(ymother)
 
    class(mpcoords) <- c("mother_map", "list")
