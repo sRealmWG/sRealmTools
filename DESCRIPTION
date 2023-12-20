@@ -1,7 +1,7 @@
 Package: sRealmTools
 Type: Package
 Title: Collection of functions and simulation models on top of mobsim
-Version: 0.1.1.9013
+Version: 0.1.1.9014
 Authors@R: person("Alban", "Sagouis", role = c("aut","cre"),
         email = "alban.sagouis@idiv.de",
         comment = c(ORCID = "0000-0002-3827-1063"))
@@ -9,15 +9,13 @@ Maintainer: alban.sagouis <alban.sagouis@idiv.de>
 Description: Functions adapted to mobsim package simulation and sampling tools.
     Models simulating plant communities over time.
 Imports: 
-    mobsim,
     spatstat.explore, spatstat.geom
 Remotes: github::AlbanSagouis/mobsim
 Suggests:
-    spatstat.random,
+    mobsim,
     devtools,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Config/testthat/parallel: true
 URL: https://github.com/sRealmWG/sRealmTools
 BugReports: https://github.com/sRealmWG/sRealmTools/issues
 License: MIT + file LICENSE

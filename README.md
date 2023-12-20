@@ -7,6 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sRealmTools)](https://CRAN.R-project.org/package=sRealmTools)
+[![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/sRealmTools)](https://cran.r-project.org/package=sRealmTools)
 [![R-CMD-check](https://github.com/sRealmWG/sRealmTools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sRealmWG/sRealmTools/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -33,7 +34,10 @@ library(sRealmTools)
 simdat <- mobsim::sim_thomas_community(s_pool = 5L,
                                        n_sim = 100L,
                                        mother_points = 1L)
-simdatJ <- jitter_species(simdat, sd = 0.05, drift = 0.05)
+simdatJ <- jitter_species(simdat, sd = 0.05) |> 
+   drift_x_species(drift = 0.1) |> 
+   drift_y_species(drift = -0.2) |> 
+   torusify()
 cat("Just one time step")
 #> Just one time step
 par(mfrow = c(1L, 2L))

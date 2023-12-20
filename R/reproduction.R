@@ -1,19 +1,21 @@
-#' Takes an object of class \code{\link[mobsim]{community}} and replaces individual
-#' species identities based on the neighbours
+#' Takes an object of class \code{\link[mobsim]{community}} and replaces
+#' individual species identities based on the neighbours
 #'
 #' @param comm Community object
 #' @inheritParams spatstat.explore::marktable
 #' @inheritParams create_motherpoints
 #'
-#' @details For each individual, the function first identifies neighbours' identity
-#' using the \code{\link[spatstat.explore]{marktable}} function, computes relative
-#' abundances and uses these relative abundances as random drawing probabilities
-#' in \code{\link[base]{sample}}.
-#' The neighbourhood community of an individual is restricted by parameter N (number of individual) or R (radius).
+#' @details For each individual, the function first identifies neighbours'
+#' identity using the \code{\link[spatstat.explore]{marktable}} function,
+#' computes relative abundances and uses these relative abundances as random
+#' drawing probabilities in \code{\link[base]{sample}}.
+#' The neighbourhood community of an individual is restricted by parameter N
+#' (number of individual) or R (radius).
 #' @author Alban Sagouis
 #'
 #' @examples
-#' # Integrated between mobsim::sim_thomas_coords() and the analysis of biodiversity
+#' # Integrated between mobsim::sim_thomas_coords() and the analysis of
+#' # biodiversity
 #' simdat <- mobsim::sim_thomas_coords(11L:100L)
 #' mobsim::div_rand_rect(comm = simdat, prop_area = 0.01, n_rect = 20L)
 #' simdat2 <- replace_individuals(simdat, N = 10L)
@@ -33,5 +35,5 @@ replace_individuals <- function(comm, N = NULL, R = NULL, seed = NULL) {
          function(ind) names(sample(x = ind, size = 1L, prob = ind/sum(ind)))
       )
    )
-   comm
+   return(comm)
 }
